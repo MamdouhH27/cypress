@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run",
+    "test:headed": "cypress run --headed"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +17,9 @@
     "cypress": "^15.14.2",
     "esbuild": "^0.28.0",
     "ts-loader": "^9.5.7"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/support/step_definitions/**/*.js"
   }
 }
