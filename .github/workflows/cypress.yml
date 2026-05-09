@@ -21,11 +21,15 @@ jobs:
         with:
           node-version: 18
 
+      - name: Install dependencies
+        run: npm install
+
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
           headed: false
+          install: false
 
       - name: Upload screenshots on failure
         uses: actions/upload-artifact@v4
@@ -40,3 +44,4 @@ jobs:
         with:
           name: cypress-videos
           path: cypress/videos
+          if-no-files-found: ignore
