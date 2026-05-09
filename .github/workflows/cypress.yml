@@ -22,10 +22,13 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run Cypress tests
-        run: npx cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          headed: false
 
       - name: Upload screenshots on failure
         uses: actions/upload-artifact@v3
